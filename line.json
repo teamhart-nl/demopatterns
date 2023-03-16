@@ -8,7 +8,7 @@
                     "frequency": 300
                 }
             ],
-            "time": 62
+            "time": 125
         },
         {
             "iteration": [
@@ -18,7 +18,7 @@
                     "frequency": 300
                 }
             ],
-            "time": 62
+            "time": 125
         },
         {
             "iteration": [
@@ -28,7 +28,7 @@
                     "frequency": 300
                 }
             ],
-            "time": 62
+            "time": 125
         },
         {
             "iteration": [
@@ -38,7 +38,7 @@
                     "frequency": 300
                 }
             ],
-            "time": 62
+            "time": 125
         }
     ]
 }
