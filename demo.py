@@ -42,23 +42,28 @@ for pattern in patterns:
 # Guess
 def guess():
     print("Sending the pattern...")
-    pattern = random.choice(patterns)
+    pattern = patterns[random.randint(0, len(patterns) - 1)]
+    random.seed(time.time())
     if not DEBUG:
         BACKEND.send(pattern)
     print("Guess the pattern!")
-    for i, pattern in enumerate(patterns):
-        print("{nr}. {pattern}".format(nr = i + 1, pattern = pattern))
+    for i, pat in enumerate(patterns):
+        print("{nr}. {pattern}".format(nr = i + 1, pattern = pat))
     inp = input("Enter the number of the pattern, or nothing to feel it again: ")
     if inp == "":
         print("Sending the pattern again...")
         if not DEBUG:
             BACKEND.send(pattern)
         print("Guess the pattern!")
-        for i, pattern in enumerate(patterns):
-            print("{nr}. {pattern}".format(nr = i + 1, pattern = pattern))
+        for i, pat in enumerate(patterns):
+            print("{nr}. {pattern}".format(nr = i + 1, pattern = pat))
         inp = ""
         while inp == "":
             inp = input("Enter the number of the pattern: ")
+            if inp == "exit":
+                exit()
+    elif inp == "exit":
+        exit()
     if int(inp) == patterns.index(pattern) + 1:
         print("Correct!")
     else:
