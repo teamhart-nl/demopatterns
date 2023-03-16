@@ -9,8 +9,6 @@ import random, time
 DEBUG = True
 if not DEBUG:
     BACKEND = BackendHandler()
-RANDOM = random.Random()
-
 
 # Patterns
 patterns = [
@@ -44,7 +42,7 @@ for pattern in patterns:
 # Guess
 def guess():
     print("Sending the pattern...")
-    pattern = RANDOM.choice(patterns)
+    pattern = random.choice(patterns)
     if not DEBUG:
         BACKEND.send(pattern)
     print("Guess the pattern!")
@@ -58,7 +56,9 @@ def guess():
         print("Guess the pattern!")
         for i, pattern in enumerate(patterns):
             print("{nr}. {pattern}".format(nr = i + 1, pattern = pattern))
-        inp = input("Enter the number of the pattern: ")
+        inp = ""
+        while inp == "":
+            inp = input("Enter the number of the pattern: ")
     if int(inp) == patterns.index(pattern) + 1:
         print("Correct!")
     else:
@@ -70,4 +70,3 @@ def guess():
 while True:
     print("\033c", end="") # Clear the terminal
     guess()
-    RANDOM.seed(RANDOM.random())
