@@ -6,7 +6,7 @@
 ###################
 from backend import BackendHandler
 import random, time
-DEBUG = True
+DEBUG = False
 if not DEBUG:
     BACKEND = BackendHandler()
 
@@ -19,7 +19,7 @@ patterns = [
 
 PATTERN_DURATION: float = 0.0
 import json
-with open(patterns[0] + ".json", "r") as f:
+with open("patterns/" + patterns[0] + ".json", "r") as f:
     j = json.load(f)
     for iteration in j["pattern"]:
         PATTERN_DURATION += float(iteration["time"]) / 1000
