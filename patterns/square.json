@@ -3,42 +3,52 @@
         {
             "iteration": [
                 {
-                    "coord": 11,
-                    "amplitude": 75,
+                    "coord": 12,
+                    "amplitude": 30000,
                     "frequency": 300
                 }
             ],
-            "time": 125
+            "time": 250
         },
         {
             "iteration": [
                 {
-                    "coord": 12,
-                    "amplitude": 75,
+                    "coord": 22,
+                    "amplitude": 30000,
                     "frequency": 300
                 }
             ],
-            "time": 125
+            "time": 250
         },
         {
             "iteration": [
                 {
                     "coord": 23,
-                    "amplitude": 75,
+                    "amplitude": 30000,
                     "frequency": 300
                 }
             ],
-            "time": 125
+            "time": 250
         },
         {
             "iteration": [
                 {
-                    "coord": 24,
-                    "amplitude": 75,
+                    "coord": 13,
+                    "amplitude": 30000,
                     "frequency": 300
                 }
             ],
-            "time": 125
+            "time": 250
+        },
+        {
+            "iteration": [
+                {
+                    "coord": 12,
+                    "amplitude": 30000,
+                    "frequency": 300
+                }
+            ],
+            "time": 250
         }
     ]
 }
