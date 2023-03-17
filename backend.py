@@ -6,7 +6,6 @@ class BackendHandler:
     """Handles the encoding of the current entries."""
   
     # Settings
-    update_hz = 1 # Per second
     port = 8000
     debug = False
 
@@ -18,7 +17,7 @@ class BackendHandler:
 
         # Check connection
         try:
-            register(api_url = "http://localhost:" + str(self.port) + "/patterns")
+            register(api_url = "http://localhost:" + str(self.port) + "/patterns", debug=self.debug)
         except Exception as e:
             print("BackendHandler Setup Failed: " + str(e))
             input("Press enter to retry starting BackendHandler...")

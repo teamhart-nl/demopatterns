@@ -6,7 +6,19 @@
 ################################################
 import glob, json, requests, os
 
-def register(path = "/patterns/*.json", api_url = "http://localhost:8000/patterns"):
+def register(path = "patterns", api_url = "http://localhost:8000/patterns", debug = False):
+
+    if not path.startswith("/"):
+        path = "/" + path
+    if not path.endswith("/*.json"):
+        if path.endswith("*.json"):
+            path = path[:-5] + "/*.json"
+        else:
+            path += "/*.json"
+
+    if debug:
+        print("Searching for patterns in:", os.getcwd() + path)
+
     # Load all .json files in the cwd
     files = glob.glob(os.getcwd() + path)
 
@@ -17,6 +29,8 @@ def register(path = "/patterns/*.json", api_url = "http://localhost:8000/pattern
 
     # For each file load the data and add it to the dictionary
     for file in files:
+        if debug:
+            print("Registering pattern: ", file)
         data = json.load(open(file))
 
         # Add the data to the dictionary
