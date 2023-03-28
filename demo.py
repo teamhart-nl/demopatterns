@@ -47,17 +47,23 @@ def guess():
             inp = input("Enter the number of the pattern: ")
             if inp == "exit":
                 exit()
+            elif inp == "restart":
+                game()
     elif inp == "exit":
         exit()
+    elif inp == "restart":
+        game()
     if int(inp) == PATTERNS.index(pattern) + 1:
         print("Correct!")
     else:
         print("Incorrect, you guessed {} but the correct pattern was: {}".format(inp, str(PATTERNS.index(pattern) + 1) + ". " + pattern))
-    inp = input("Press enter to continue to play again, or type 'exit' to exit: ")
+    inp = input("Press enter to continue to play again, or type 'restart' to restart the game: ")
     if inp == "exit":
         exit()
+    elif inp == "restart":
+        game()
 
-if __name__ == "__main__":
+def learn():
     # Game
     print("\033c", end="") # Clear the terminal
     print("Welcome to the pattern game!")
@@ -74,16 +80,29 @@ if __name__ == "__main__":
         if not DEBUG:
             BACKEND.send(pattern)
             time.sleep(PATTERN_DURATION)
-            input("Press enter to feel the pattern again")
+            if input("Press enter to feel the pattern again. ") == "restart":
+                game()
             BACKEND.send(pattern)
             time.sleep(PATTERN_DURATION)
             if i != len(PATTERNS) - 1:
-                input("Press enter to continue to the next pattern")
+                if input("Press enter to continue to the next pattern. ") == "restart":
+                    game()
             else:
-                input("Press enter to begin guessing")
-            print("\033c", end="") # Clear the terminal
+                if input("Press enter to begin guessing. ") == "restart":
+                    game()
+            print("\033c", end="") # Clear the terminal 
+
+def game():
+    print("\033c", end="") # Clear the terminal
+
+    # Learn
+    learn()
 
     # Game
     while True:
         guess()
         print("\033c", end="") # Clear the terminal
+
+
+if __name__ == "__main__":
+    game()
