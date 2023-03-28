@@ -33,11 +33,13 @@ print("Then you will have to guess which pattern is the correct one when feeling
 # Learn
 print("Learn the {nr} patterns.".format(nr = len(patterns)))
 for pattern in patterns:
-    print("Pattern: " + pattern)
-    if not DEBUG:
-        BACKEND.send(pattern)
-        time.sleep(1)
-    input("Press enter to continue to the next pattern...")
+    next = ""
+    while next == "":
+        print("Pattern: " + pattern)
+        if not DEBUG:
+            BACKEND.send(pattern)
+            time.sleep(1)
+        next = input("Press enter to feel the pattern again, or type anything and press enter to go to the next pattern...")
 
 # Guess
 def guess():
